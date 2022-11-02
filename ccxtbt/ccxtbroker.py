@@ -246,7 +246,8 @@ class CCXTBroker(with_metaclass(MetaCCXTBroker, BrokerBase)):
         else:
             try:
                 # all params are exchange specific: https://github.com/ccxt/ccxt/wiki/Manual#custom-order-params
-                params['created'] = created  # Add timestamp of order creation for backtesting
+                # THIS UNCOMMENTED, BECAUSE IT CONFLICTS WITH BINANCE LIVE TRADING
+                # params['created'] = created  # Add timestamp of order creation for backtesting
                 ret_ord = self.store.create_order(symbol=data.p.dataname, order_type=order_type, side=side,
                                                   amount=amount, price=price, params=params)
             except:
